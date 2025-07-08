@@ -10,7 +10,7 @@ Rewards will be given to anyone who finds bugs in these files.
 
 ### Week 1
 * Day 1: introductions, student background, about Python, about our resources, HelloWorld
-* Day 2: 
+* Day 2: Get a brief taste of loops, conditionals, and user input
 * Day 3: 
 * Day 4: 
 * Day 5: 
