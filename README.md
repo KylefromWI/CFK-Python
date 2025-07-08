@@ -1,6 +1,6 @@
 # Summer 2025 College for Teens Python Programming
 
-Here is an [in browser code editor](https://www.w3schools.com/python/trypython.asp?filename=demo_default) we will be using to start.
+Here is an [in browser code editor](https://www.online-python.com/) we will be using to start.
 
 Please tell Kyle any and all ways to improve. He wants this class/repo to be as useful as possible. 
 
