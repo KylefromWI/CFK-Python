@@ -1,5 +1,5 @@
 grocList = []
-sel = "foo"
+sel = ""
 def printMenu(): #prints the menu and gives user choices
     print("******************************************")
     print("Welcome to your grocery list. You can...")
