@@ -1,13 +1,16 @@
 #a very insecure chatbot
 
-#first, we are going to assume the user is friends with the bot
+#first, assume the user is friends with the bot
 areFriends = True
 
-#this starts a while loop. if areFriends is still true, we will do the code inside the loop
+#start a loop that will keep going until we are not friends.
 while areFriends == True:
+    #ask the user and store the respsonse in a variable named response
     response = input("Hi, are we still friends? Please say yes!!!")
     if response == 'yes':
         print("oh good, just checking.")
+    elif response == 'heck yea':
+        print("right on, dude")
     else:
         print("ohhhhhh......sorry for bothering you")
         areFriends = False
