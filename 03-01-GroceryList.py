@@ -14,8 +14,11 @@ def printMenu(): #prints the menu and gives user choices
 def addGrocery(grocery): #addGrocery takes in a grocery item, and adds it
     grocList.append(grocery)
     
+def removeGrocery(grocery):
+    grocList.remove(grocery)
+
 while sel != "exit": # != means "is not equal to"
     sel = printMenu()
-    if sel == "add": 
-        addGrocery(input("What do we need?"))
+    if sel == "add": addGrocery(input("What do we need?"))
     if sel == "look": print(grocList)
+    if sel == "remove": removeGrocery(input("What do you not need?"))
