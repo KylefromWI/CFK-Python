@@ -1,0 +1,29 @@
+Stock Market Program
+Gameplay loop: 1.)print a daily report.
+               2.)give choices (sell, buy)
+               3.)change the prices by a random amount
+Variables needed: stocks (list of dicts), userAccount
+Daily Report includes: 
+    your cash amount, your stocks, and today's prices
+1. create our variables (first one is named stocks)
+    cash amount (start at 1000), 
+    days (start at 1 go until 6),
+    changePrices function that perturbs the stock prices by random amt
+    printDailyReport function
+    buy and sell functions
+    userChoices function asks for buy, sell, or end day
+
+
+cashAmount = 1000
+days = 1
+
+
+def userChoices():
+    choice = input("What do you want to do? sell, buy, or end day")
+    if (choice == "sell"):
+        sell(acct, stocks)
+    elif (choice == "buy"):
+        buy(acct, stocks)
+    elif (choice == "end day"):
+        goodNight(stocks)
+    else: userChoices()
