@@ -11,8 +11,8 @@ Rewards will be given to anyone who finds bugs in these files.
 ### Week 1
 * Day 1: introductions, student background, about Python, about our resources, HelloWorld, favorite number, 
 * Day 2: Get a brief taste of loops, conditionals, and user input
-* Day 3: Lists and create grocery list
-* Day 4: Fizzbuzz (check for understanding) and begin Stock Market Simulator
+* Day 3: Lists and create grocery list (todo: add grocery store fully done with comments)
+* Day 4: Fizzbuzz (check for understanding) and begin Stock Market Simulator(todo: add fizzbuzz with explanations)
 * Day 5: "How's it Going?" Google Form and continue/enhance Stock Market Simulator
 
 ### Week 2
