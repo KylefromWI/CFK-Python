@@ -11,16 +11,16 @@ Rewards will be given to anyone who finds bugs in these files.
 ### Week 1
 * Day 1: introductions, student background, about Python, about our resources, HelloWorld, favorite number, 
 * Day 2: Get a brief taste of loops, conditionals, and user input
-* Day 3: Lists thru grocery list
-* Day 4: 
-* Day 5: 
+* Day 3: Lists and create grocery list
+* Day 4: Fizzbuzz (check for understanding) and begin Stock Market Simulator
+* Day 5: "How's it Going?" Google Form and continue/enhance Stock Market Simulator
 
 ### Week 2
 * Day 6: 
 * Day 7: 
 * Day 8: 
 * Day 9: 
-* Day 10: 
+* Day 10: NWM Guest speaker: Python expert
 
 ## External Resources
 * [Learn Python in Y Minutes](https://learnxinyminutes.com/docs/python/)
