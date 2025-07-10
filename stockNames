@@ -1,0 +1,1 @@
+stocks = [{"name":"SouthEastern Individual", "desc": "Everyone's favorite life insurance company", "sym": "SEI", "price": 50},{"name":"Orange", "desc": "Creator of the JPhone", "sym": "ORG", "price": 50}, {"name":"Big Brother", "desc": "Ownder of companies like Oodle and distapound", "sym": "BB", "price": 50}]
