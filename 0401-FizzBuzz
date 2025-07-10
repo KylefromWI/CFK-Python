@@ -1,0 +1,14 @@
+User_Choice = int(input("What number would you like to go to?"))
+def fizzBuzz(n):
+    counter = 1
+    while counter <= n:
+        if counter % 15 == 0:
+            print("fizzbuzz")
+        elif counter % 5 == 0:
+            print("buzz")
+        elif counter % 3 == 0:
+            print("fizz")
+        else:
+            print(counter)
+        counter = counter + 1
+fizzBuzz(User_Choice) #last line
