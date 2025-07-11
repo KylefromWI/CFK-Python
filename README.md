@@ -1,10 +1,8 @@
 # Summer 2025 College for Teens Python Programming
 
-Here is an [in browser code editor](https://www.online-python.com/) we will be using to start.
+Here is an [in browser code editor](https://www.youtube.com/watch?v=dQw4w9WgXcQ) we will be using to start.
 
-Please tell Kyle any and all ways to improve. He wants this class/repo to be as useful as possible. 
-
-Rewards will be given to anyone who finds bugs in these files.
+Please compelte [this form](https://forms.gle/azCbs9V2e5oGUAUe7) to help Kyle aim the rest of the class. 
 
 ## Course Outline
 
@@ -20,7 +18,7 @@ Rewards will be given to anyone who finds bugs in these files.
 * Day 7: 
 * Day 8: 
 * Day 9: 
-* Day 10: NWM Guest speaker: Python expert
+* Day 10: NWM Guest speaker/volunteer: Python expert
 
 ## External Resources
 * [Learn Python in Y Minutes](https://learnxinyminutes.com/docs/python/)
@@ -29,3 +27,4 @@ Rewards will be given to anyone who finds bugs in these files.
 * [Offical Python API documentation about the String class](https://docs.python.org/2/library/strings.html)
 * [Another good Python tutorial/crash course](https://www.tutorialspoint.com/python/index.htm)
   
+In browser [coding editor](https://www.online-python.com/)
