@@ -1,21 +1,44 @@
-Stock Market Program
-Gameplay loop: 1.)print a daily report.
-               2.)give choices (sell, buy)
-               3.)change the prices by a random amount
-Variables needed: stocks (list of dicts), userAccount
-Daily Report includes: 
-    your cash amount, your stocks, and today's prices
-1. create our variables (first one is named stocks)
-    cash amount (start at 1000), 
-    days (start at 1 go until 6),
-    changePrices function that perturbs the stock prices by random amt
-    printDailyReport function
-    buy and sell functions
-    userChoices function asks for buy, sell, or end day
+'''Stock Market Game Program
+Gameplay loop: 1.) print a daily report. This includes the user's current cash balance, their current stocks owned, and the current day's stock prices
+               2.) give the user choices (sell, buy, end the day)
+               3.) change the prices by a random perentage
+
+Data/variables needed:
+  account (dictionary): includes cash (number) and stocks (number owned)
+  stocks (list of dictionaries): each dictionary includes one stock's information. This has been added into the Github repo
+  maxDays (number)
+
+Other notes
+  cash starts at 1000
+  all stock prices start at 50
+  maxDays is 6 
+
+Functions needed
+  changePrices(stocks) at the end of every day change the stock proces by a random amount
+    * remember how to use the random
+    * what are the boundaries we should pick?
+  
+  printDailyReport(acct, stocks) prints the user's cash balance, the stocks they own, and today's prices
+
+  userChoices(acct, stocks) loop that keeps asking the user if they want to sell or buy until the user says end the day
+    * what do we do if user types something weird?
+
+  buyStocks(acct,stocks) asks user which stock they want to buy and how many, then changes the user's cash and number of stocks
+    * what if a user tries to buy something the don't have enough money for?
+
+  sellStocks(acct,stocks) asks user which stock they want to sell and how many, then changes the user's cash and number of stocks
+    * what if a user tries to sell something they don't own?
+
+  endDay() automatically ends the userChoices loop and runs changesPrices
 
 
-cashAmount = 1000
-days = 1
+Future additions (tell Kyle if you think of any others)
+* include a netWorth funtion that prints out the total value of user's account
+* include high/low risk stocks
+* show the user each stock's recent history
+
+'''
+
 
 
 def userChoices():
