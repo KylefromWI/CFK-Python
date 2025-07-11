@@ -38,6 +38,7 @@ Future additions (tell Kyle if you think of any others)
 * include a netWorth funtion that prints out the total value of user's account
 * include high/low risk stocks
 * show the user each stock's recent history
+* add an "easter egg" where the program takes the user's CC info
 
 '''
 
