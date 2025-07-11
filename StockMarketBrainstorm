@@ -33,6 +33,8 @@ Functions needed
 
 
 Future additions (tell Kyle if you think of any others)
+* after buying or selling, update user about their holdings
+* include % ownership in company based on current shares owned
 * include a netWorth funtion that prints out the total value of user's account
 * include high/low risk stocks
 * show the user each stock's recent history
