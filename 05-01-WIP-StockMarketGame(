@@ -1,0 +1,44 @@
+import random
+
+#Variables
+stocks = [{"name":"SouthEastern Individual", "desc": "Everyone's favorite life insurance company", "sym": "SEI", "price": 50},{"name":"Orange", "desc": "Creator of the JPhone", "sym": "ORG", "price": 50}, {"name":"Big Brother", "desc": "Ownder of companies like Oodle and distapound", "sym": "BB", "price": 50}]
+acct = {"cash": 1000,"SouthEastern Individual": 0, "Orange": 0, "Big Brother": 0}
+maxDays = 6
+currentDay = 1
+
+#Functions we will use 
+def printDailyReport(acct, stocks):
+    
+def userChoices(): 
+    choice = input("What do you want to do? sell, buy, or end day")
+    if (choice == "sell"):
+        sellStocks(acct, stocks)
+    elif (choice == "buy"):
+        buyStocks(acct, stocks)
+    elif (choice == "end day"):
+        endDay(stocks)
+    else: userChoices()
+def buyStocks(acct, stocks):
+    stockChoice = input("Which stock do you want to buy?")
+    sharesToBuy = int(input("How many shares do you want to buy?"))
+    # add shares to player's acct
+    acct[stockChoice] = acct[stockChoice] + sharesToBuy
+    # take the current cash and remove the cost of the shares
+    acct["cash"] = acct["cash"] - sharesToBuy*stocks[stockChoice["price"]]
+def sellStocks(acct, stocks):
+    stockChoice = input("Which stock do you want to sell?")
+    sharesToSell = int(input("How many shares do you want to sell?"))
+    # remove shares from player's acct
+    acct[stockChoice] = acct[stockChoice] - sharesToSell
+    # take the current cash and add the revenue from the share's sold
+    acct["cash"] = acct["cash"] + sharesToSell*stocks[stockChoice["price"]]
+def endDay():
+    print("Goodnight")
+    changePrices(stocks)
+
+def changePrices(stocks):
+
+def finalResults():
+#Main loop of our program
+
+while currentDay <= maxDays:
