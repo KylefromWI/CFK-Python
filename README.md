@@ -28,4 +28,5 @@ Here is an [in browser code editor](https://www.online-python.com/) we will be u
 * [String class documentation](https://docs.python.org/2/library/strings.html)
 * [Math class documentation](https://docs.python.org/2/library/math.html?highlight=math#module-math)
 * [Random class documentation](https://docs.python.org/2/library/random.html?highlight=random#module-random)
+* [Turtle class documentation](https://docs.python.org/3/library/turtle.html)
 
