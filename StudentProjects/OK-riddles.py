@@ -70,5 +70,3 @@ while riddleDone == True:
     if retry == 'yes':
         riddleGame = True
     else: print("bye")
-riddles.py
-Displaying riddles.py.
