@@ -81,5 +81,3 @@ for rows in range(1,7):
     print ('')
     if x > month_days[month]:
         break
-Month_Calendar.py
-Displaying RouletteGame.py.
