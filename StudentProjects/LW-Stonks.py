@@ -178,5 +178,3 @@ while currentDay <= MAX_DAYS:
     user_choices()
 
 final_results()
-Stonks.py
-Displaying Stonks.py.
