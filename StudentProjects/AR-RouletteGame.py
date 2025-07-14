@@ -107,5 +107,3 @@ def play_roulette():
     print(f"\nGame ended. Final balance: ${balance:.2f}. Thanks for playing!")
 
 play_roulette()
-RouletteGame.py
-Displaying RouletteGame.py.
