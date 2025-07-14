@@ -1,5 +1,7 @@
 #Example of file manipulation (reading and writing)
 
+#TODO: insert a header and keep multiple scores (make a leaderboard)
+
 # asks the user for their score
 choice = input("Do you want to write or read?  ")
 
