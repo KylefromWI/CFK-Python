@@ -2,65 +2,65 @@
 
 question = input("do you want to play riddles?")
 if question == 'yes':
-    riddleGame = True
+    hasRiddleGameStarted = True
     print("good")
 else:
     print("fine")
-    riddleGame = False
-    riddleTwo = riddleGame
-    riddleThree = riddleTwo
-    riddleDone = riddleThree
-while riddleGame == True:
-    firstRiddle = input ("what has roots as nobody sees, is taller that trees, up up it goes yet never grows?")
-    if firstRiddle == 'a mountain':
+    hasRiddleGameStarted = False
+    onRiddleTwo = hasRiddleGameStarted
+    onRiddleThree = onRiddleTwo
+    riddleDone = onRiddleThree
+while hasRiddleGameStarted == True:
+    firstRiddleResponse = input ("what has roots as nobody sees, is taller that trees, up up it goes yet never grows?")
+    if firstRiddleResponse == 'a mountain':
         print("correct")
-        riddleGame = False
-        riddleTwo = riddleGame
-        riddleTwo = True
+        hasRiddleGameStarted = False
+        onRiddleTwo = hasRiddleGameStarted
+        onRiddleTwo = True
     else:
         print("wrong")
-        riddleTwo = riddleGame
-        riddleGame = False
-        riddleTwo = False
-        riddleThree = riddleTwo
-        riddleDone = riddleThree
+        onRiddleTwo = hasRiddleGameStarted
+        hasRiddleGameStarted = False
+        onRiddleTwo = False
+        onRiddleThree = onRiddleTwo
+        riddleDone = onRiddleThree
         retry = input("do you want to play again?")
         if retry == 'yes':
-            riddleGame = True
+            hasRiddleGameStarted = True
         else: print("bye")
-while riddleTwo == True:
-    secondRiddle = input ("alive without breath, as cold as death, never thirsty, ever drinking, all in mail, never clinking")
-    if secondRiddle == 'a fish':
+while onRiddleTwo == True:
+    secondRiddleResponse = input ("alive without breath, as cold as death, never thirsty, ever drinking, all in mail, never clinking")
+    if secondRiddleResponse == 'a fish':
         print("correct")
-        riddleTwo = False
-        riddleThree = riddleTwo
-        riddleThree = True
+        onRiddleTwo = False
+        onRiddleThree = onRiddleTwo
+        onRiddleThree = True
     else:
         print("wrong")
-        riddleThree = riddleTwo
-        riddleTwo = False
-        riddleThree = False
-        riddleDone = riddleThree
+        onRiddleThree = onRiddleTwo
+        onRiddleTwo = False
+        onRiddleThree = False
+        riddleDone = onRiddleThree
         retry = input("do you want to play again?")
         if retry == 'yes':
-            riddleGame = True
+            hasRiddleGameStarted = True
         else: print("bye")
-while riddleThree == True:
-    thirdRiddle = input ("a box without hinges key or lid, yet golden treasure inside is hid")
-    if thirdRiddle == 'an egg':
+while onRiddleThree == True:
+    thirdRiddleResponse = input ("a box without hinges key or lid, yet golden treasure inside is hid")
+    if thirdRiddleResponse == 'an egg':
         print("correct")
-        riddleThree = False
-        riddleDone = riddleThree
+        onRiddleThree = False
+        riddleDone = onRiddleThree
         riddleDone = True
     else:
         print("wrong")
-        riddleDone = riddleThree
-        riddleTwo = False
+        riddleDone = onRiddleThree
+        onRiddleTwo = False
         riddleDone = False
-        riddleThree = False
+        onRiddleThree = False
         retry = input("do you want to play again?")
         if retry == 'yes':
-            riddleGame = True
+            hasRiddleGameStarted = True
         else: print("bye")
     
 while riddleDone == True:
@@ -68,5 +68,5 @@ while riddleDone == True:
     riddleDone = False
     retry = input("do you want to play again?")
     if retry == 'yes':
-        riddleGame = True
+        hasRiddleGameStarted = True
     else: print("bye")
