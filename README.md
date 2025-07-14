@@ -1,8 +1,6 @@
 # Summer 2025 College for Teens Python Programming
 
-Here is an [in browser code editor](https://www.youtube.com/watch?v=dQw4w9WgXcQ) we will be using to start.
-
-Please compelte [this form](https://forms.gle/azCbs9V2e5oGUAUe7) to help Kyle aim the rest of the class. 
+Here is an [in browser code editor](https://www.online-python.com/) we will be using to start.
 
 ## Course Outline
 
@@ -30,5 +28,4 @@ Please compelte [this form](https://forms.gle/azCbs9V2e5oGUAUe7) to help Kyle ai
 * [String class documentation](https://docs.python.org/2/library/strings.html)
 * [Math class documentation](https://docs.python.org/2/library/math.html?highlight=math#module-math)
 * [Random class documentation](https://docs.python.org/2/library/random.html?highlight=random#module-random)
-  
-In browser [coding editor](https://www.online-python.com/)
+
