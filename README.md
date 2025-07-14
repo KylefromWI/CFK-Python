@@ -14,7 +14,7 @@ Please compelte [this form](https://forms.gle/azCbs9V2e5oGUAUe7) to help Kyle ai
 * Day 5: "How's it Going?" Google Form and continue/enhance Stock Market Simulator
 
 ### Week 2
-* Day 6: 
+* Day 6: VS Code, file manipulation, continue Stock Market Simulator
 * Day 7: 
 * Day 8: 
 * Day 9: 
