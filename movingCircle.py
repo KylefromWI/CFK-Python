@@ -1,3 +1,4 @@
+import math
 import turtle #requires tkinter, run in VS Code
 import time
 
@@ -30,7 +31,7 @@ speed = 2
 while True:
     angle += speed
     x = radius * 2 * turtle.getscreen().window_width()/700 * (2 * (angle/360) - (angle//360)) # calculate x position based on angle
-    y = radius * turtle.getscreen().window_height()/700 * (0.8*turtle.sin(angle * (3.14159/180))) # calculate y position based on angle
+    y = radius * turtle.getscreen().window_height()/700 * (0.8*math.sin(angle * (3.14159/180))) # calculate y position based on angle
     pen.goto(x, y) # move to new position
 
     if x > screen.window_width()/2 - radius or x < -screen.window_width()/2 + radius:
