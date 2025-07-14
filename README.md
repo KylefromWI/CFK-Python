@@ -24,7 +24,11 @@ Please compelte [this form](https://forms.gle/azCbs9V2e5oGUAUe7) to help Kyle ai
 * [Learn Python in Y Minutes](https://learnxinyminutes.com/docs/python/)
 * [Learn X in Y Minutes (all languages)](https://learnxinyminutes.com/)
 * [W3 Schools Python tutorial](https://www.w3schools.com/python/)
-* [Offical Python API documentation about the String class](https://docs.python.org/2/library/strings.html)
 * [Another good Python tutorial/crash course](https://www.tutorialspoint.com/python/index.htm)
+
+## Specific Module Documentation
+* [String class documentation](https://docs.python.org/2/library/strings.html)
+* [Math class documentation](https://docs.python.org/2/library/math.html?highlight=math#module-math)
+* [Random class documentation](https://docs.python.org/2/library/random.html?highlight=random#module-random)
   
 In browser [coding editor](https://www.online-python.com/)
