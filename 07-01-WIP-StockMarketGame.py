@@ -1,3 +1,5 @@
+# Written in class. Use this as a jumping off point
+
 import random
 
 stocks = [
