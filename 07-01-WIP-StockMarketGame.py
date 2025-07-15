@@ -20,6 +20,7 @@ def DailyReport():
         print(f"{i+1}. {stock['name']} ({stock['sym']}) : ${stock['price']} - {stock['desc']}")
     print()
     print("Your Stocks:", User_Stocks)
+    print("Today is day ", Current_Day)
 
 # Buy stocks
 def BuyStock():
@@ -90,7 +91,6 @@ def ChangePrices():
 
         #round that price to the nearest cent
         i["price"] = round(i["price"], 2)
-
 
 while User_Choice != "Quit" and Current_Day <= Max_Day:
     DailyReport()
