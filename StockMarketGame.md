@@ -45,12 +45,8 @@ Change each stock's price by a random amount
 
 ## Backlog (In no particular order)
 
-
-
 * Give the user an account update after they buy or sell
 * Tell the user their percent of ownership in each company based off their shares
-* Include a netWorth function that tells the user the current total value of their holdings
-  * Use the netWorth function to end the game by telling the user their total money amount
 * Include high/low risk stocks and inform the user about them
 * Show the user each stock's recent history
 * Add an "Easter egg" where the program collects the user's CC details
@@ -63,4 +59,6 @@ Change each stock's price by a random amount
   * User cannot sell more shares than they have
   * User cannot spend more money than they have
 * When CurrentBalance is printed, round to the nearest cent
-* Negative stock prices
+* No negative stock prices
+* Include a netWorth function that tells the user the current total value of their holdings
+  * Use the netWorth function to end the game by telling the user their total money amount
