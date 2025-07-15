@@ -77,12 +77,11 @@ def SellStock():
 def ChangePrices():
     for i in stocks:
 
-        # random multiplier between -200% and 200%
+        # random multiplier between 0% and 300%
         # The math looks like...
         #  random.random               =>  0.0 thru 1.0
-        #  random.random - 0.5         => -0.5 thru 0.5
-        # (random.random() - 0.5) * 4  => -2.0 thru 2.0   
-        multiplier = (random.random() - 0.5) * 4
+        #  random.random * 3           =>  0.0 thru 3.0
+        multiplier = random.random() * 3
 
         #multiply the previous price by the multipler, then make that the new price
         i["price"] = i["price"] * multiplier
