@@ -20,7 +20,9 @@ def DailyReport():
         print(f"{i+1}. {stock['name']} ({stock['sym']}) : ${stock['price']} - {stock['desc']}")
     print()
     print("Your Stocks:", User_Stocks)
+    print("Your net worth is ", CalculateNetWorth())
     print("Today is day ", Current_Day)
+
 
 # Buy stocks
 def BuyStock():
@@ -91,6 +93,13 @@ def ChangePrices():
 
         #round that price to the nearest cent
         i["price"] = round(i["price"], 2)
+
+def CalculateNetWorth():
+    total_stock_value = 0
+    for sym in set(User_Stocks):
+        price = next(stock['price'] for stock in stocks if stock['sym'] == sym)
+        total_stock_value += price * User_Stocks.count(sym)
+    return (CurrentBalance + total_stock_value)
 
 while User_Choice != "Quit" and Current_Day <= Max_Day:
     DailyReport()
