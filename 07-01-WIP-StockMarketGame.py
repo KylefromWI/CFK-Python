@@ -37,6 +37,7 @@ def BuyStock():
                 User_Stocks.append(stock['sym'])
             CurrentBalance -= total_cost
             print(f"Bought {amount} share(s) of {stock['sym']}.")
+            CurrentBalance = round(CurrentBalance, 2)
             print("Current Balance", CurrentBalance)
         else:
             print("Not enough money.")
@@ -67,6 +68,7 @@ def SellStock():
             price = next(stock['price'] for stock in stocks if stock['sym'] == sym)
             CurrentBalance += price * amount
             print(f"Sold {amount} share(s) of {sym}.")
+            CurrentBalance = round(CurrentBalance, 2)
             print("Current Balance", CurrentBalance)
         else:
             print("You don't have that many shares.")
