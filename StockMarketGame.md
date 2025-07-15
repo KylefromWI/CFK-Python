@@ -53,6 +53,7 @@ Change each stock's price by a random amount
 * Add a "stock market crash" ending where the last day of X % of runs end with the user losing all their non-cash holdings
 * Record scores to a "Leaderboard" text file
 * Make the game print in an easier-to-read way
+* Include ads
 
 ## Finished Items
 * Avoid cheating
