@@ -57,3 +57,4 @@ Change each stock's price by a random amount
 7. Add an "Easter egg" where the program collects the user's CC details
 8. Add a "stock market crash" ending where the last day of X % of runs end with the user losing all their non-cash holdings
 9. Record scores to a "Leaderboard" text file
+10. Make the game print in an easier-to-read way
