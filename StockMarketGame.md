@@ -45,19 +45,22 @@ Change each stock's price by a random amount
 
 ## Backlog (In no particular order)
 
-~1. Avoid cheating~
-~* User cannot sell more shares than they have~
-~* User cannot spend more money than they have~
 
-1. When CurrentBalance is printed, round to the nearest cent
-2. Give the user an account update after they buy or sell
-3. Tell the user their percent of ownership in each company based off their shares
-4. Include a netWorth function that tells the user the current total value of their holdings
+
+1. Give the user an account update after they buy or sell
+2. Tell the user their percent of ownership in each company based off their shares
+3. Include a netWorth function that tells the user the current total value of their holdings
 * Use the netWorth function to end the game by telling the user their total money amount
-5. Include high/low risk stocks and inform the user about them
-6. Show the user each stock's recent history
-7. Add an "Easter egg" where the program collects the user's CC details
-8. Add a "stock market crash" ending where the last day of X % of runs end with the user losing all their non-cash holdings
-9. Record scores to a "Leaderboard" text file
-10. Make the game print in an easier-to-read way
-11. Negative stock prices
+4. Include high/low risk stocks and inform the user about them
+5. Show the user each stock's recent history
+6. Add an "Easter egg" where the program collects the user's CC details
+7. Add a "stock market crash" ending where the last day of X % of runs end with the user losing all their non-cash holdings
+8. Record scores to a "Leaderboard" text file
+9. Make the game print in an easier-to-read way
+
+## Finished Items
+1. Avoid cheating
+* User cannot sell more shares than they have
+* User cannot spend more money than they have
+2. When CurrentBalance is printed, round to the nearest cent
+3. Negative stock prices
