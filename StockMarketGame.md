@@ -45,9 +45,9 @@ Change each stock's price by a random amount
 
 ## Backlog (In no particular order)
 
-1. Avoid cheating
-* User cannot sell more shares than they have
-* User cannot spend more money than they have
+~1. Avoid cheating~
+~* User cannot sell more shares than they have~
+~* User cannot spend more money than they have~
 2. Give the user an account update after they buy or sell
 3. Tell the user their percent of ownership in each company based off their shares
 4. Include a netWorth function that tells the user the current total value of their holdings
