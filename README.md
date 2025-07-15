@@ -13,7 +13,7 @@ Here is an [in browser code editor](https://www.online-python.com/) we will be u
 
 ### Week 2
 * Day 6: VS Code, file manipulation, continue Stock Market Simulator
-* Day 7: 
+* Day 7: Finish Stock Market Simulator, work on backlog, start own projects
 * Day 8: 
 * Day 9: 
 * Day 10: NWM Guest speaker/volunteer: Python expert
