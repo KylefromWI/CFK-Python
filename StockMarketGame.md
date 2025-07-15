@@ -51,7 +51,9 @@ Change each stock's price by a random amount
 2. Give the user an account update after they buy or sell
 3. Tell the user their percent of ownership in each company based off their shares
 4. Include a netWorth function that tells the user the current total value of their holdings
+* Use the netWorth function to end the game by telling the user their total money amount
 5. Include high/low risk stocks and inform the user about them
 6. Show the user each stock's recent history
 7. Add an "Easter egg" where the program collects the user's CC details
 8. Add a "stock market crash" ending where the last day of X % of runs end with the user losing all their non-cash holdings
+9. Record scores to a "Leaderboard" text file
