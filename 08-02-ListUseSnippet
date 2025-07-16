@@ -1,0 +1,9 @@
+# OK: use this concept in your Ads function. It will make your code more sleek. And it will give you practice using Lists, which is huge in programming
+
+a = "apple"
+b = "banana"
+c = "cantaloupe"
+
+fruits = [a, b, c]
+
+print(fruits[0])
