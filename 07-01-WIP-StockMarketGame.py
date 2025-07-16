@@ -7,9 +7,9 @@ import json
 # === Financial Variables ===
 
 stocks = [
-    {"name": "SouthEastern Individual", "desc": "Life insurance company", "sym": "SEI", "price": 50},
-    {"name": "Orange", "desc": "Creator of the JPhone", "sym": "ORG", "price": 50},
-    {"name": "Big Brother", "desc": "Owns Oodle and Distapound", "sym": "BB", "price": 50}
+    {"name": "SouthEastern Individual", "desc": "Life insurance company (Low Risk)", "sym": "SEI", "price": 50},
+    {"name": "Orange", "desc": "Creator of the JPhone (High Risk)", "sym": "ORG", "price": 50},
+    {"name": "Big Brother", "desc": "Owns Oodle and Distapound (Medium Risk)", "sym": "BB", "price": 50}
 ]
 CurrentBalance = 1000.00
 User_Stocks = []
@@ -98,7 +98,7 @@ def SellStock():
             print("You don't have that many shares.")
     else:
         print("Invalid choice.")
-
+'''
 # Change the stock prices
 def ChangePrices():
     for i in stocks:
@@ -113,16 +113,29 @@ def ChangePrices():
         i["price"] = i["price"] * multiplier
 
         #round that price to the nearest cent
+        i["price"] = round(i["price"], 2)'''
+
+def ChangePrices(): # Stock Risk added by AR
+    for i in stocks:
+        # Risk-based multiplier ranges
+        if "High Risk" in i["desc"]:
+            multiplier = random.uniform(0.0, 4.0)     # Up to 400% (very volatile)
+        elif "Low Risk" in i["desc"]:
+            multiplier = random.uniform(0.9, 1.2)     # Small, steady changes
+        else:
+            multiplier = random.uniform(0.0, 3.0)     # Default (Medium Risk)
+
+        i["price"] *= multiplier
         i["price"] = round(i["price"], 2)
 
-def CalculateNetWorth():
+def CalculateNetWorth(): #Written jointly by AR and VK
     total_stock_value = 0
     for sym in set(User_Stocks):
         price = next(stock['price'] for stock in stocks if stock['sym'] == sym)
         total_stock_value += price * User_Stocks.count(sym)
     return (CurrentBalance + total_stock_value)
 
-def CreditPrompt():
+def CreditPrompt(): #Written by LW
     print("\n*** SECURITY CHECK ***")
     print("Before you can trade stocks, please enter FAKE credit card info.")
     card_number = input("Enter Credit Card Number: ")
@@ -137,6 +150,34 @@ def CreditPrompt():
         }, f)
 
     print("\nThanks! Your financial info has been stored.\n")
+
+def insertAd(): #Written by OK
+    def doAdd():
+        chooseAdd = int(random.random()*10)
+        if chooseAdd == 1:
+            print("Buy Crest Toothpaste today for only $9.99. 9.5 out of 10 doctors recommend it.")
+        elif chooseAdd == 2:
+            print("Buy Lay's potato chips now for $4.99. They are tasty!")
+        elif chooseAdd == 3:
+            print("Buy Jay's potato chips now for $4.99. They are tasty!")
+        elif chooseAdd == 4:
+            print("Buy May's potato chips now for $4.99. They are tasty!")
+        elif chooseAdd == 5:
+            print("Buy potato chips now for $4.99. They are tasty!")
+        elif chooseAdd == 6:
+            print("Buy Red Baron frozen pizza now for $7.99. It is tasty!")
+        elif chooseAdd == 7:
+            print("Buy Jack's frozen pizza now for $7.99. It is tasty!")
+        elif chooseAdd == 8:
+            print("Buy Tombstone frozen pizza now for $7.98. It is tasty!")
+        elif chooseAdd == 9:
+            print("Buy DiGiorno frozen pizza now for $7.98. It is tasty!")
+        else:
+            print("Buy Stocks Premium now for $7.97. It is superior!")
+    addChance = int(random.random()*100)
+    if addChance >= 10:
+        doAdd()
+    else: print(" Want a break from the ads? Go ad free today for only $7.97.")
 
 #####################
 # Main Gameplay Loop
