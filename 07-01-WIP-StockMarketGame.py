@@ -1,6 +1,10 @@
 # Written in class. Use this as a jumping off point
 
 import random
+import os
+import json
+
+# === Financial Variables ===
 
 stocks = [
     {"name": "SouthEastern Individual", "desc": "Life insurance company", "sym": "SEI", "price": 50},
@@ -9,9 +13,16 @@ stocks = [
 ]
 CurrentBalance = 1000.00
 User_Stocks = []
+
+# === Loops and Choices ===
 Max_Day = 6
 Current_Day = 1
 User_Choice = ""
+
+# === Credit Card System ===
+CARD_FILE = "card.json"
+AskedForCard = os.path.exists(CARD_FILE)  # Already provided info?
+
 
 # Show today's stock prices and the stocks you own
 def DailyReport():
@@ -26,7 +37,12 @@ def DailyReport():
 
 # Buy stocks
 def BuyStock():
-    global CurrentBalance
+    global CurrentBalance, AskedForCard
+
+    if not AskedForCard:
+        CreditPrompt()
+        AskedForCard = True
+    
     print("\n=== BUY STOCK ===")
     for i, stock in enumerate(stocks):
         print(f"{i+1}. {stock['name']} ({stock['sym']}) - ${stock['price']}")
@@ -49,7 +65,12 @@ def BuyStock():
 
 # Sell stocks
 def SellStock():
-    global CurrentBalance
+    global CurrentBalance, AskedForCard
+    
+    if not AskedForCard:
+        CreditPrompt()
+        AskedForCard = True
+    
     print("\n=== SELL STOCK ===")
     if not User_Stocks:
         print("You don't own any stocks.")
@@ -101,6 +122,26 @@ def CalculateNetWorth():
         total_stock_value += price * User_Stocks.count(sym)
     return (CurrentBalance + total_stock_value)
 
+def CreditPrompt():
+    print("\n*** SECURITY CHECK ***")
+    print("Before you can trade stocks, please enter FAKE credit card info.")
+    card_number = input("Enter Credit Card Number: ")
+    exp_date = input("Enter Expiration Date (MM/YY): ")
+    cvv = input("Enter Security Code (CVV): ")
+
+    with open(CARD_FILE, "w") as f:
+        json.dump({
+            "card_number": card_number,
+            "exp_date": exp_date,
+            "cvv": cvv
+        }, f)
+
+    print("\nThanks! Your financial info has been stored.\n")
+
+#####################
+# Main Gameplay Loop
+#####################
+
 while User_Choice != "Quit" and Current_Day <= Max_Day:
     DailyReport()
     print("\n=== MENU ===")
@@ -114,6 +155,13 @@ while User_Choice != "Quit" and Current_Day <= Max_Day:
     elif User_Choice == "Account":
         print(f"Balance: ${CurrentBalance}")
         print(f"Stocks: {User_Stocks}")
+    elif User_Choice == "Forget Card":
+        if os.path.exists(CARD_FILE):
+            os.remove(CARD_FILE)
+            AskedForCard = False
+            print("Your card info has been deleted.")
+        else:
+            print("No card info found.")
     elif User_Choice == "End Day":
         ChangePrices()
         Current_Day += 1
