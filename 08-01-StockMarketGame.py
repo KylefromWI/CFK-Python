@@ -109,6 +109,7 @@ def SellStock():
     for i, sym in enumerate(symbols):
         count = User_Stocks.count(sym)
         print(f"{i+1}. {sym} - {count} share(s)")
+    if User_Choice == "Buy":
         BuyStock()
         print(f"Current Balance: ${CurrentBalance:.2f}")
     elif User_Choice == "Sell":
