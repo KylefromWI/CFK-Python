@@ -21,9 +21,9 @@ In this game the user starts with $1000, then buys and sells stocks for six days
 * Instead of printing the list of syms, print how many shares of each
 
 ### New Features
-* Tell the user their percent of ownership in each company based off their shares
-* Show the user each stock's recent history
-* Award prizes/tiers based on final networth
+* Tell the user their percent of ownership in each company based off their shares (JC)
+* Show the user each stock's recent history  (AR)
+* Award prizes/tiers based on final networth (vk)
 
 ## "Finished" Items
 * Avoid cheating
