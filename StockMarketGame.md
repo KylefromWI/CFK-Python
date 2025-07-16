@@ -14,6 +14,7 @@ In this game the user starts with $1000, then buys and sells stocks for six days
 ## Backlog (In no particular order)
 
 ### Bugs and QoL That Need To Be Fixed
+* Sometimes CurrentBalance is shown as a decimal, not an amount of money (e.g.  $46.5999999999)
 * Allow upper and lower case when inputting User Choices
   * allow is user choice contains "buy", "end" etc -> HB
 * Give the user an account update after they buy or sell
