@@ -22,7 +22,7 @@ In this game the user starts with $1000, then buys and sells stocks for six days
 ### New Features
 * Tell the user their percent of ownership in each company based off their shares
 * Show the user each stock's recent history
-* Record scores to a "Leaderboard" text file
+* Award prizes/tiers based on final networth
 
 ## "Finished" Items
 * Avoid cheating
