@@ -33,7 +33,7 @@ CurrentBalance = 1000.00
 User_Stocks = []
 
 # === Loops and Choices ===
-Max_Day = 6
+Max_Day = 3
 Current_Day = 1
 User_Choice = ""
 
