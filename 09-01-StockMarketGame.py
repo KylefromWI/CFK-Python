@@ -1,6 +1,7 @@
 import random
 import os
 import json
+import time
 
 # === Financial Variables ===
 
@@ -40,22 +41,45 @@ User_Choice = ""
 CARD_FILE = "card.json"
 AskedForCard = os.path.exists(CARD_FILE)  # Already provided info?
 
+# === Other Variables ===
+
+adTexts = ["Buy Crest Toothpaste today for only $9.99. 9.5 out of 10 doctors recommend it.", 
+           "Buy Lay's potato chips now for $4.99. They are tasty!", 
+           "Buy Jay's potato chips now for $4.99. They are tasty!",
+           "Buy May's potato chips now for $4.99. They are tasty!", 
+           "Buy potato chips now for $4.99. They are tasty!", 
+           "Buy Red Baron frozen pizza now for $7.99. It is tasty!", 
+           "Buy Jack's frozen pizza now for $7.99. It is tasty!", 
+           "Buy Tombstone frozen pizza now for $7.98. It is tasty!", 
+           "Buy DiGiorno frozen pizza now for $7.98. It is tasty!", 
+           "Buy Stocks Premium now for $7.97. It is superior!"]
+
+advertChance = int(random.random() * 100)
+advertWait = 5
+
+MarketCrashChance = int(random.random()*100)
 
 # Show today's stock prices and the stocks you own
 def DailyReport():
-    print("\n=== TODAY'S STOCK PRICES ===")
+    print("\n=== DAY", Current_Day, "STOCK PRICES ===")
     for i, stock in enumerate(stocks):
         owned = User_Stocks.count(stock['sym'])
         total_supply = stock['stock_left'] + owned
         ownership_percent = (owned / total_supply) * 100 if total_supply > 0 else 0
         print(f"{i+1}. {stock['name']} ({stock['sym']}) : ${stock['price']} - {stock['desc']}")
-        print(f"   Shares left: {stock['stock_left']}, You own: {owned} ({ownership_percent:.2f}%)")
     print()
     print("Your net worth is $", round(CalculateNetWorth(), 2))
-    print("Today is day", Current_Day)
+    print(f"Your current cash balance: ${CurrentBalance:.2f}")
 
+def OwnershipReport():
+    print("\n=== OWNERSHIP REPORT ===")
+    for stock in stocks:
+        owned = User_Stocks.count(stock['sym'])
+        total = owned + stock['stock_left']
+        percent = (owned / total) * 100 if total > 0 else 0
+        print(f"You own {percent:.2f}% of {stock['sym']}")
+    print(f"Current Balance: ${CurrentBalance:.2f}")
 
-# Buy stocks
 def BuyStock():
     global CurrentBalance, AskedForCard
 
@@ -91,8 +115,6 @@ def BuyStock():
     else:
         print("Invalid choice.")
 
-
-# Sell stocks
 def SellStock():
     global CurrentBalance, AskedForCard
 
@@ -129,8 +151,6 @@ def SellStock():
     else:
         print("Invalid choice.")
 
-
-# Change stock prices with risk
 def ChangePrices():
     for i in stocks:
         if "High Risk" in i["desc"]:
@@ -143,14 +163,12 @@ def ChangePrices():
         i["price"] *= multiplier
         i["price"] = round(i["price"], 2)
 
-
 def CalculateNetWorth():
     total_stock_value = 0
     for sym in set(User_Stocks):
         price = next(stock['price'] for stock in stocks if stock['sym'] == sym)
         total_stock_value += price * User_Stocks.count(sym)
     return CurrentBalance + total_stock_value
-
 
 def CreditPrompt():
     print("\n*** SECURITY CHECK ***")
@@ -187,36 +205,21 @@ def Give_Prize():
     elif Net_Worth > 10000:
         print("Congrats. Your rank is Platinum. You Won: " + random.choice(Platinum))
 
+def PrintCash():
+    print(f"Current Cash Balance: ${CurrentBalance:.2f}")
 
 def insertAd():
-    def doAdd():
-        chooseAdd = int(random.random() * 10)
-        if chooseAdd == 1:
-            print("Buy Crest Toothpaste today for only $9.99. 9.5 out of 10 doctors recommend it.")
-        elif chooseAdd == 2:
-            print("Buy Lay's potato chips now for $4.99. They are tasty!")
-        elif chooseAdd == 3:
-            print("Buy Jay's potato chips now for $4.99. They are tasty!")
-        elif chooseAdd == 4:
-            print("Buy May's potato chips now for $4.99. They are tasty!")
-        elif chooseAdd == 5:
-            print("Buy potato chips now for $4.99. They are tasty!")
-        elif chooseAdd == 6:
-            print("Buy Red Baron frozen pizza now for $7.99. It is tasty!")
-        elif chooseAdd == 7:
-            print("Buy Jack's frozen pizza now for $7.99. It is tasty!")
-        elif chooseAdd == 8:
-            print("Buy Tombstone frozen pizza now for $7.98. It is tasty!")
-        elif chooseAdd == 9:
-            print("Buy DiGiorno frozen pizza now for $7.98. It is tasty!")
-        else:
-            print("Buy Stocks Premium now for $7.97. It is superior!")
-    addChance = int(random.random() * 100)
-    if addChance >= 10:
-        doAdd()
+    chooseAd = int(random.random() * 10)
+    if advertChance >= 10:
+        print("===============================")
+        print()
+        print(adTexts[chooseAd])
+        print()
+        print("===============================")
+        time.sleep(advertWait)
     else:
         print(" Want a break from the ads? Go ad free today for only $7.97.")
-
+        time.sleep(advertWait)
 
 #####################
 # Main Gameplay Loop
@@ -225,19 +228,19 @@ def insertAd():
 while User_Choice != "Quit" and Current_Day <= Max_Day:
     DailyReport()
     print("\n=== MENU ===")
-    print("Options: Buy / Sell / Account / End Day / Forget Card / Quit")
+    print("Options: Buy / Sell / Account / End Day / Forget Card / Ownership Report / Quit")
     User_Choice = input("What would you like to do? ")
 
     if User_Choice == "Buy":
         BuyStock()
-        print(f"Current Balance: ${CurrentBalance:.2f}")
+        PrintCash()
     elif User_Choice == "Sell":
         SellStock()
-        print(f"Current Balance: ${CurrentBalance:.2f}")
+        PrintCash()
     elif User_Choice == "Account":
         print(f"Balance: ${CurrentBalance:.2f}")
         print(f"Stocks: {User_Stocks}")
-        print(f"Current Balance: ${CurrentBalance:.2f}")
+        PrintCash()
     elif User_Choice == "Forget Card":
         if os.path.exists(CARD_FILE):
             os.remove(CARD_FILE)
@@ -245,23 +248,22 @@ while User_Choice != "Quit" and Current_Day <= Max_Day:
             print("Your card info has been deleted.")
         else:
             print("No card info found.")
-        print(f"Current Balance: ${CurrentBalance:.2f}")
+            PrintCash()
+    elif User_Choice == "Ownership Report":
+        OwnershipReport()
     elif User_Choice == "End Day":
         ChangePrices()
         insertAd()
-        print("\n=== OWNERSHIP REPORT ===")
-        for stock in stocks:
-            owned = User_Stocks.count(stock['sym'])
-            total = owned + stock['stock_left']
-            percent = (owned / total) * 100 if total > 0 else 0
-            print(f"You own {percent:.2f}% of {stock['sym']}")
+        OwnershipReport()
         Current_Day += 1
-        print(f"Current Balance: ${CurrentBalance:.2f}")
     elif User_Choice == "Quit":
         break
     else:
         print("Invalid option.")
-        print(f"Current Balance: ${CurrentBalance:.2f}")
+
+if MarketCrashChance >= 90:
+    CurrentBalance = 0
+    print("The stock market has crashed, sorry")
 
 print(f"\nYour final cash balance is ${CurrentBalance:.2f}")
 Give_Prize()
