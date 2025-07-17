@@ -13,17 +13,16 @@ In this game the user starts with $1000, then buys and sells stocks for six days
 
 ## Backlog (In no particular order)
 
+### Todo (Everybody!!)
+* Play thru the game twice. Write down anything you want changed. Give those changes to Kyle or AR
+
 ### Bugs and QoL That Need To Be Fixed
-* Sometimes CurrentBalance is shown as a decimal, not an amount of money (e.g.  $46.5999999999)
 * Allow upper and lower case when inputting User Choices
   * allow is user choice contains "buy", "end" etc -> HB
-* Give the user an account update after they buy or sell
-* Instead of printing the list of syms, print how many shares of each
+* Input validation. Example: the game should not crash if the users types "zebra" when asked "how many shares do you want to buy?". Instead it should tell the user that is invalid, any give another option
 
 ### New Features
-* Tell the user their percent of ownership in each company based off their shares (JC)
 * Show the user each stock's recent history  (AR)
-* Award prizes/tiers based on final networth (vk)
 
 ## "Finished" Items
 * Avoid cheating
@@ -37,5 +36,12 @@ In this game the user starts with $1000, then buys and sells stocks for six days
 * Add an "Easter egg" where the program collects the user's CC details
 * Add a "stock market crash" ending where the last day of X % of runs end with the user losing all their non-cash holdings
 * Include ads
+* Sometimes CurrentBalance is shown as a decimal, not an amount of money (e.g.  $46.5999999999)
+* Give the user an account update after they buy or sell
+* Instead of printing the list of syms, print how many shares of each
+* Tell the user their percent of ownership in each company based off their shares (JC)
+* Award prizes/tiers based on final networth (vk)
+
+
 
 
