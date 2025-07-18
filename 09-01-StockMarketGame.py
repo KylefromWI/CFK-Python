@@ -100,7 +100,7 @@ def BuyStock():
         CreditPrompt()
         AskedForCard = True
 
-    print("\n=== BUY STOCK ===")
+    print("\n=== STOCKS FOR SALE ===")
     time.sleep(0.5)
     for i, stock in enumerate(stocks):
         print(f"{i+1}. {stock['name']} ({stock['sym']}) - ${stock['price']} (Available: {stock['stock_left']})")
@@ -113,10 +113,11 @@ def BuyStock():
         print(f"Available shares of {stock['sym']}: {stock['stock_left']}")
         time.sleep(0.5)
         Max_Stocks = int(CurrentBalance // stock['price'])       
-        print(f"You Can Only Buy: {Max_Stocks} stocks of {stock['sym']}")   
+        print(f"Max you can buy: {Max_Stocks} shares of {stock['sym']}")   
         print()
         time.sleep(0.5)
         amount = int(input("How many shares to buy? "))
+        print()
 
         if amount > stock["stock_left"]:
             print("Not enough shares available.")
@@ -129,7 +130,6 @@ def BuyStock():
             stock["stock_left"] -= amount
             CurrentBalance -= total_cost
             print(f"Bought {amount} share(s) of {stock['sym']}.")
-            print()
             time.sleep(0.5)
         else:
             print("Not enough money.")
@@ -143,7 +143,7 @@ def SellStock():
         CreditPrompt()
         AskedForCard = True
 
-    print("\n=== SELL STOCK ===")
+    print("\n=== YOUR STOCKS ===")
     time.sleep(0.5)
     if not User_Stocks:
         print("You don't own any stocks.")
@@ -167,7 +167,6 @@ def SellStock():
             stock["stock_left"] += amount  # Return shares to the market
             CurrentBalance += price * amount
             print(f"Sold {amount} share(s) of {sym}.")
-            PrintCash()
         else:
             print("You don't have that many shares.")
     else:
@@ -221,6 +220,7 @@ def Give_Prize():
     Platinum = ["Matthew plushie", "bluetooth speaker", "water bottle", "Evan plushie"]
     Diamond = ["20 dollar gift card", "wireless earbuds", "mini trophy", "desk lamp"]
 
+    Net_Worth = CalculateNetWorth()
     PrintNetWorth()
     if Net_Worth <= 1000:
         print("Congrats. Your rank is Bronze. You Won: " + random.choice(Bronze))
@@ -258,17 +258,24 @@ def insertAd():
         time.sleep(advertWait)
 
 def PrintAccount():
+    print()
+    print("\n=== YOUR ACCOUNT ===")
+    print()
     time.sleep(0.5)
-    print(f"Stocks: {User_Stocks}")
+    print(f"Stocks Owned:")
+    print()
     symbols = list(set(User_Stocks))
     for i, sym in enumerate(symbols):
         count = User_Stocks.count(sym)
         print(f"{i+1}. {sym} - {count} share(s)")
         time.sleep(0.5)
+    print()
     time.sleep(0.5)
     PrintCash()
     time.sleep(0.5)
+    print()
     PrintNetWorth()
+    time.sleep(2)
 
 
 
@@ -290,6 +297,7 @@ while User_Choice != "Quit" and Current_Day <= Max_Day:
         PrintCash()
     elif User_Choice == "SELL":
         SellStock()
+        print()
         PrintCash()
     elif User_Choice == "ACCOUNT":
         PrintAccount()
@@ -321,7 +329,12 @@ while User_Choice != "Quit" and Current_Day <= Max_Day:
 
 if MarketCrashChance >= 90:
     CurrentBalance = 0
-    print("The stock market has crashed, sorry")
+    print("===============================")
+    print()
+    print("OH NO!!! THE MARKET CRASHED")
+    print()
+    print("===============================")
+    time.sleep(2)
 
 PrintNetWorth()
 time.sleep(0.5)
