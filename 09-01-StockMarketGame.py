@@ -3,8 +3,6 @@ import os
 import json
 import time
 
-#todo: format the calculate networth string inside 
-
 # === Financial Variables ===
 
 stocks = [
@@ -54,13 +52,13 @@ AskedForCard = os.path.exists(CARD_FILE)  # Already provided info?
 
 adTexts = ["Buy Crest Toothpaste today for only $9.99. 9.5 out of 10 doctors recommend it.", 
            "Buy Lay's potato chips now for $4.99. They are tasty!", 
-           "Buy Jay's potato chips now for $4.99. They are tasty!",
+           "Are you tired of the ads? Move them to your Nintendo for $69.99!",
            "Buy May's potato chips now for $4.99. They are tasty!", 
            "Buy potato chips now for $4.99. They are tasty!", 
            "Buy Red Baron frozen pizza now for $7.99. It is tasty!", 
-           "Buy Jack's frozen pizza now for $7.99. It is tasty!", 
+           "Buy Stock market game, X-Box edition, only $10,000!", 
            "Buy Tombstone frozen pizza now for $7.98. It is tasty!", 
-           "Buy DiGiorno frozen pizza now for $7.98. It is tasty!", 
+           "Buy moldy muffins at Target for only -$1.99!", 
            "Buy Stocks Premium now for $7.97. It is superior!"]
 
 advertChance = int(random.random() * 100)
@@ -78,9 +76,10 @@ def DailyReport():
         ownership_percent = (owned / total_supply) * 100 if total_supply > 0 else 0
         print(f"{i+1}. {stock['name']} ({stock['sym']}) : ${stock['price']} - {stock['desc']}")
         time.sleep(0.5)
-        # Print Net Worth Statement
     print()
-    print(f"Your current cash balance: ${CurrentBalance:.2f}")
+    PrintCash()
+    print()
+    PrintNetWorth()
 
 def OwnershipReport():
     print("\n=== OWNERSHIP REPORT ===")
@@ -91,7 +90,7 @@ def OwnershipReport():
         percent = (owned / total) * 100 if total > 0 else 0
         print(f"You own {percent:.2f}% of {stock['sym']}")
         time.sleep(0.5)
-    print(f"Current Balance: ${CurrentBalance:.2f}")
+    PrintCash()
     print()
 
 def BuyStock():
@@ -106,16 +105,18 @@ def BuyStock():
     for i, stock in enumerate(stocks):
         print(f"{i+1}. {stock['name']} ({stock['sym']}) - ${stock['price']} (Available: {stock['stock_left']})")
         time.sleep(0.5)
-
+    print()
     choice = int(input("Enter stock number: ")) - 1
+    print()
     if 0 <= choice < len(stocks):
         stock = stocks[choice]
         print(f"Available shares of {stock['sym']}: {stock['stock_left']}")
         time.sleep(0.5)
         Max_Stocks = int(CurrentBalance // stock['price'])       
         print(f"You Can Only Buy: {Max_Stocks} stocks of {stock['sym']}")   
+        print()
         time.sleep(0.5)
-        amount = int(input("How many shares to buy?"))
+        amount = int(input("How many shares to buy? "))
 
         if amount > stock["stock_left"]:
             print("Not enough shares available.")
@@ -128,9 +129,8 @@ def BuyStock():
             stock["stock_left"] -= amount
             CurrentBalance -= total_cost
             print(f"Bought {amount} share(s) of {stock['sym']}.")
+            print()
             time.sleep(0.5)
-            CurrentBalance = round(CurrentBalance, 2)
-            print("Current Balance", CurrentBalance)
         else:
             print("Not enough money.")
     else:
@@ -167,8 +167,7 @@ def SellStock():
             stock["stock_left"] += amount  # Return shares to the market
             CurrentBalance += price * amount
             print(f"Sold {amount} share(s) of {sym}.")
-            CurrentBalance = round(CurrentBalance, 2)
-            print("Current Balance", CurrentBalance)
+            PrintCash()
         else:
             print("You don't have that many shares.")
     else:
@@ -177,13 +176,13 @@ def SellStock():
 def ChangePrices():
     for i in stocks:
         if "High Risk" in i["desc"]:
-            multiplier = random.uniform(0.2, 4.0)
+            multiplier = random.uniform(0.1, 4.0)
         elif "Low Risk" in i["desc"]:
             multiplier = random.uniform(0.9, 1.2)
         elif "Medium Risk" in i["desc"]:
-            multiplier = random.uniform(0.2, 3.0)
+            multiplier = random.uniform(0.3, 3.0)
         elif "Highest Risk" in i["desc"]:
-            multiplier = random.uniform(0.0, 10.0)
+            multiplier = random.uniform(0.0, 5.0)
         i["price"] *= multiplier
         i["price"] = round(i["price"], 2)
 
@@ -192,6 +191,7 @@ def CalculateNetWorth():
     for sym in set(User_Stocks):
         price = next(stock['price'] for stock in stocks if stock['sym'] == sym)
         total_stock_value += price * User_Stocks.count(sym)
+        networth = round(CurrentBalance + total_stock_value,2)
     return CurrentBalance + total_stock_value
 
 def CreditPrompt():
@@ -215,13 +215,13 @@ def CreditPrompt():
     print("\nThanks! Your financial info has been stored.\n")
 
 def Give_Prize():
-    Bronze = ["candy bar", "funny sticker sheet", "certificate", "fidget toy"]
+    Bronze = ["candy bar", "funny sticker sheet", "Liam plushie", "fidget toy"]
     Silver = ["5 dollar gift card", "notebook", "keychain", "snack pack"]
     Gold = ["mini succulent", "T-shirt", "portable phone stand", "10 dollar gift card"]
-    Diamond = ["15 dollar gift card", "bluetooth speaker", "water bottle", "brain teaser game"]
-    Platinum = ["20 dollar gift card", "wireless earbuds", "mini trophy", "desk lamp"]
-#print Net Worth
-    Net_Worth = CalculateNetWorth()
+    Platinum = ["Matthew plushie", "bluetooth speaker", "water bottle", "Evan plushie"]
+    Diamond = ["20 dollar gift card", "wireless earbuds", "mini trophy", "desk lamp"]
+
+    PrintNetWorth()
     if Net_Worth <= 1000:
         print("Congrats. Your rank is Bronze. You Won: " + random.choice(Bronze))
     elif Net_Worth > 1000 and Net_Worth <= 2500:
@@ -229,17 +229,24 @@ def Give_Prize():
     elif Net_Worth > 2500 and Net_Worth <= 5000:
         print("Congrats. Your rank is Gold. You Won: " + random.choice(Gold))
     elif Net_Worth > 5000 and Net_Worth <= 10000:
-        print("Congrats. Your rank is Diamond. You Won: " + random.choice(Diamond))
-    elif Net_Worth > 10000:
         print("Congrats. Your rank is Platinum. You Won: " + random.choice(Platinum))
+    elif Net_Worth > 10000:
+        print("Congrats. Your rank is Diamond. You Won: " + random.choice(Diamond))
 
 def PrintCash():
     time.sleep(0.5)
     print(f"Current Cash Balance: ${CurrentBalance:.2f}")
 
+def PrintNetWorth():
+    time.sleep(0.5)
+    Net_Worth = CalculateNetWorth()
+    print(f"Current Net Worth: ${Net_Worth:.2f}")
+
+
 def insertAd():
     chooseAd = int(random.random() * 10)
     if advertChance >= 10:
+        print()
         print("===============================")
         print()
         print(adTexts[chooseAd])
@@ -249,6 +256,22 @@ def insertAd():
     else:
         print("Want a break from the ads? Go ad free today for only $7.97.")
         time.sleep(advertWait)
+
+def PrintAccount():
+    time.sleep(0.5)
+    print(f"Stocks: {User_Stocks}")
+    symbols = list(set(User_Stocks))
+    for i, sym in enumerate(symbols):
+        count = User_Stocks.count(sym)
+        print(f"{i+1}. {sym} - {count} share(s)")
+        time.sleep(0.5)
+    time.sleep(0.5)
+    PrintCash()
+    time.sleep(0.5)
+    PrintNetWorth()
+
+
+
 
 #####################
 # Main Gameplay Loop
@@ -269,11 +292,7 @@ while User_Choice != "Quit" and Current_Day <= Max_Day:
         SellStock()
         PrintCash()
     elif User_Choice == "ACCOUNT":
-        print(f"Balance: ${CurrentBalance:.2f}")
-        time.sleep(0.5)
-        print(f"Stocks: {User_Stocks}")
-        time.sleep(0.5)
-        PrintCash()
+        PrintAccount()
     elif User_Choice == "FORGET CARD":
         if os.path.exists(CARD_FILE):
             os.remove(CARD_FILE)
@@ -287,10 +306,14 @@ while User_Choice != "Quit" and Current_Day <= Max_Day:
     elif User_Choice == "END DAY":
         ChangePrices()
         insertAd()
-        OwnershipReport()
         Current_Day = Current_Day + 1
         if Current_Day == Max_Day:
-            print("One Day Remaining")
+            print("===============================")
+            print()
+            print("ONE DAY REMAINING")
+            print()
+            print("===============================")
+
     elif User_Choice == "QUIT":
         break
     else:
@@ -300,8 +323,7 @@ if MarketCrashChance >= 90:
     CurrentBalance = 0
     print("The stock market has crashed, sorry")
 
-
-# Print Net Worth
+PrintNetWorth()
 time.sleep(0.5)
 print(f"\nYour Final Cash Balance is ${CurrentBalance:.2f}")
 Give_Prize()
