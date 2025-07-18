@@ -40,7 +40,7 @@ CurrentBalance = 1000.00
 User_Stocks = []
 
 # === Loops and Choices ===
-Max_Day = 3
+Max_Day = 6
 Current_Day = 1
 User_Choice = ""
 
@@ -58,7 +58,7 @@ adTexts = ["Buy Crest Toothpaste today for only $9.99. 9.5 out of 10 doctors rec
            "Buy Red Baron frozen pizza now for $7.99. It is tasty!", 
            "Buy Stock market game, X-Box edition, only $10,000!", 
            "Buy Tombstone frozen pizza now for $7.98. It is tasty!", 
-           "Need more games in your life? Ask your friends!!!", 
+           "Buy Doritos brand corn chips for $5.87. They've got corn in 'em!", 
            "Buy Stocks Premium now for $7.97. It is superior!"]
 
 advertChance = int(random.random() * 100)
@@ -223,8 +223,11 @@ def Give_Prize():
     Diamond = ["20 dollar gift card", "wireless earbuds", "mini trophy", "desk lamp", "Kyle plushie"]
 
     Net_Worth = CalculateNetWorth()
+    print(f"\nYour Final Net Worth is ${Net_Worth:.2f}")
     PrintNetWorth()
-    if Net_Worth <= 1000:
+    if Net_Worth == 0:
+        print("You do not get a prize. Sorry")
+    elif Net_Worth <= 1000:
         print("Congrats. Your rank is Bronze. You Won: " + random.choice(Bronze))
     elif Net_Worth > 1000 and Net_Worth <= 2500:
         print("Congrats. Your rank is Silver. You Won: " + random.choice(Silver))
@@ -329,8 +332,12 @@ while User_Choice != "Quit" and Current_Day <= Max_Day:
     else:
         print("Invalid option.")
 
-if MarketCrashChance >= 90:
+if MarketCrashChance >= 0:
     CurrentBalance = 0
+    User_Stocks = []
+    print()
+    print()
+    print()
     print("===============================")
     print()
     print("OH NO!!! THE MARKET CRASHED")
@@ -340,5 +347,6 @@ if MarketCrashChance >= 90:
 
 time.sleep(0.5)
 print(f"\nYour Final Cash Balance is ${CurrentBalance:.2f}")
+print()
 Give_Prize()
 print("Goodbye!")
