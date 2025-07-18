@@ -58,7 +58,7 @@ adTexts = ["Buy Crest Toothpaste today for only $9.99. 9.5 out of 10 doctors rec
            "Buy Red Baron frozen pizza now for $7.99. It is tasty!", 
            "Buy Stock market game, X-Box edition, only $10,000!", 
            "Buy Tombstone frozen pizza now for $7.98. It is tasty!", 
-           "Buy moldy muffins at Target for only -$1.99!", 
+           "Need more games in your life? Ask your friends!!!", 
            "Buy Stocks Premium now for $7.97. It is superior!"]
 
 advertChance = int(random.random() * 100)
@@ -214,11 +214,13 @@ def CreditPrompt():
     print("\nThanks! Your financial info has been stored.\n")
 
 def Give_Prize():
-    Bronze = ["candy bar", "funny sticker sheet", "Liam plushie", "fidget toy"]
+    Bronze = ["candy bar", "funny sticker sheet", "finger trap", "fidget toy"]
     Silver = ["5 dollar gift card", "notebook", "keychain", "snack pack"]
     Gold = ["mini succulent", "T-shirt", "portable phone stand", "10 dollar gift card"]
-    Platinum = ["Matthew plushie", "bluetooth speaker", "water bottle", "Evan plushie"]
-    Diamond = ["20 dollar gift card", "wireless earbuds", "mini trophy", "desk lamp"]
+    Platinum = ["Henry plushie", "Liam plushie", "Hayden plushie", "CJ plushie", "Oliver plushie", "Adhvik plushie", "Julian plushie",
+                "Travis plushie", "Caleb plushie", "Benjamin plushie", "Ryan plushie", "Virginia plushie", "Asel plushie", "Thomas plushie",
+                "Sarvesh plushie"]
+    Diamond = ["20 dollar gift card", "wireless earbuds", "mini trophy", "desk lamp", "Kyle plushie"]
 
     Net_Worth = CalculateNetWorth()
     PrintNetWorth()
@@ -336,7 +338,6 @@ if MarketCrashChance >= 90:
     print("===============================")
     time.sleep(2)
 
-PrintNetWorth()
 time.sleep(0.5)
 print(f"\nYour Final Cash Balance is ${CurrentBalance:.2f}")
 Give_Prize()
